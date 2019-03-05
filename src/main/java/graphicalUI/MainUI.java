@@ -22,7 +22,7 @@ public class MainUI extends Application {
 	
 	public static void showStartPage(Stage stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainUI.class.getResource("/view/startPageView.fxml"));
+		loader.setLocation(MainUI.class.getResource("/view/homePageView.fxml"));
 		AnchorPane rootLayout = loader.load();
 		Scene scene = new Scene(rootLayout);
 		stage.setScene(scene);

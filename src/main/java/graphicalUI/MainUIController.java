@@ -30,12 +30,28 @@ public class MainUIController {
 	private TextField usernameInput;
 	@FXML
 	private TextField passwordInput;
+	@FXML
+	private TextField lastnameInput;
+	@FXML
+	private TextField firstnameInput;
+	@FXML
+	private TextField nicknameInput;
+	@FXML
+	private TextField phoneInput;
+	@FXML
+	private TextField addressInput;
+	@FXML
+	private TextField emailInput;
+	@FXML
+	private TextField birthdateInput;
 	
 	@FXML
-	private void onConnectionClick() throws IOException {
+	private void onConnectionClick() throws IOException, SQLException {
 		setDbName(dbNameInput.getText());
 		setUsername(usernameInput.getText());
 		setPassword(passwordInput.getText());
+		
+		Connection connection = DatabaseManagement.start();
 		
 		System.out.println("Database : " + dbName + ", username : " + username + ", password ? No :p");
 	}
@@ -43,6 +59,6 @@ public class MainUIController {
 	@FXML
 	private void addDb() throws SQLException {
 		Connection connection = DatabaseManagement.start();
-		DatabaseManagement.add(connection, "Beuscart", "Benjamin", "Ben", "0680053192", "16 clos des aquarelles 59211 Santes", "benjamin.beuscart@isen.yncrea.fr", "1996-09-02");
+		DatabaseManagement.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
 	}
 }
