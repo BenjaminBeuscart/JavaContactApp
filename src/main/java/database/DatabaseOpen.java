@@ -15,6 +15,7 @@ public class DatabaseOpen {
 	 */
 	public static Connection start() throws SQLException {
 		Connection connection = DatabaseSource.getDataSource().getConnection();
+		System.out.println("Connection to database established.");
 		return connection;
 	}
 	
@@ -25,5 +26,6 @@ public class DatabaseOpen {
 	 */
 	public static void close(Connection connection) throws SQLException {
 		connection.close();
+		System.out.println("Connexion to database closed.");
 	}
 }
