@@ -8,7 +8,7 @@ import database.DatabaseManagement;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class StartPageController {
+public class MainUIController {
 	
 	private String dbName;
 	private String username;

@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class StartPage extends Application {
+public class MainUI extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -22,7 +22,7 @@ public class StartPage extends Application {
 	
 	public static void showStartPage(Stage stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(StartPage.class.getResource("/view/startPageView.fxml"));
+		loader.setLocation(MainUI.class.getResource("/view/startPageView.fxml"));
 		AnchorPane rootLayout = loader.load();
 		Scene scene = new Scene(rootLayout);
 		stage.setScene(scene);
