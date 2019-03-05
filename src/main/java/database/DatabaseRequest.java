@@ -5,33 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import database.DatabaseSource;
+public class DatabaseRequest {
 
-public class DatabaseManagement {
-	
-	/* TODO Séquencer le script en plusieurs fichiers */
-	
-	/**
-	 * Opens the connection to
-	 * the database using datas from a MysqlDataSource
-	 * object
-	 * @return A Connection object
-	 * @throws SQLException
-	 */
-	public static Connection start() throws SQLException {
-		Connection connection = DatabaseSource.getDataSource().getConnection();
-		return connection;
-	}
-	
-	/**
-	 * Closes the connection to a database
-	 * @param connection The Connection object representing the database
-	 * @throws SQLException
-	 */
-	public static void close(Connection connection) throws SQLException {
-		connection.close();
-	}
-	
 	/**
 	 * Lists all people in the
 	 * database
@@ -73,6 +48,8 @@ public class DatabaseManagement {
 		System.out.println(nbLines + " line(s) have been modified.");
 		statement.close();
 	}
+	
+	/* TODO Méthode pour modifier uen ligne de la table person */
 	
 	/**
 	 * Allows to delete a person from the database taking her lastname and firstname

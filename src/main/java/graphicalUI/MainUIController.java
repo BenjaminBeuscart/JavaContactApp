@@ -2,10 +2,15 @@ package graphicalUI;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-import database.DatabaseManagement;
+import database.DatabaseOpen;
+import database.DatabaseRequest;
+import database.Person;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class MainUIController {
@@ -52,14 +57,35 @@ public class MainUIController {
 		setUsername(usernameInput.getText());
 		setPassword(passwordInput.getText());
 		
-		Connection connection = DatabaseManagement.start();
+		Connection connection = DatabaseOpen.start();
 		
 		System.out.println("Database : " + dbName + ", username : " + username + ", password ? No :p");
+		
+		ResultSet setPerson = DatabaseRequest.listPerson(connection);
+		ArrayList<Person> alistPerson = new ArrayList<Person>();
+		int i = 0;
+		while (setPerson.next()) {
+			alistPerson.set(i, new Person(setPerson.getInt(1), setPerson.getString(2), setPerson.getString(3), setPerson.getString(4), setPerson.getString(5), setPerson.getString(6), setPerson.getString(7), setPerson.getString(8)));
+			System.out.println(alistPerson.get(i).getEmail());
+			i++;
+		};
 	}
 	
 	@FXML
 	private void addDb() throws SQLException {
-		Connection connection = DatabaseManagement.start();
-		DatabaseManagement.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
+		Connection connection = DatabaseOpen.start();
+		DatabaseRequest.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
+	}
+	
+	
+	
+	
+	
+	@FXML
+	private TableView<Person> listPerson;
+	
+	@FXML
+	private void initialize() {
+		
 	}
 }
