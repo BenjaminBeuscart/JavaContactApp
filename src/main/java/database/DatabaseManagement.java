@@ -10,8 +10,10 @@ import database.DatabaseSource;
 public class DatabaseManagement {
 	
 	/**
-	 * 
-	 * @return
+	 * Opens the connection to
+	 * the database using datas from a MysqlDataSource
+	 * object
+	 * @return A Connection object
 	 * @throws SQLException
 	 */
 	public static Connection start() throws SQLException {
@@ -19,11 +21,22 @@ public class DatabaseManagement {
 		return connection;
 	}
 	
-	
+	/**
+	 * Closes the connection to a database
+	 * @param connection The Connection object representing the database
+	 * @throws SQLException
+	 */
 	public static void close(Connection connection) throws SQLException {
 		connection.close();
 	}
 	
+	/**
+	 * Lists all people in the
+	 * database
+	 * @param connection The Connection object representing the database
+	 * @return A ResultSet object containing the people
+	 * @throws SQLException
+	 */
 	public static ResultSet listPerson(Connection connection) throws SQLException {
 		String allPerson = "SELECT * FROM person";
 		PreparedStatement statement = connection.prepareStatement(allPerson);
@@ -31,6 +44,18 @@ public class DatabaseManagement {
 		return resultSet;
 	}
 	
+	/**
+	 * Allows to add a person in the database
+	 * @param connection The Connection object representing the database
+	 * @param lastname Lastname of the person
+	 * @param firstname Firstname or the person
+	 * @param nickname Nickname of the person
+	 * @param phone_number Phone number of the person
+	 * @param address Address of the person
+	 * @param email_address Email address of the person
+	 * @param birth_date Birthdate of the person respecting this format YYYY-MM-DD
+	 * @throws SQLException
+	 */
 	public static void add(Connection connection, String lastname, String firstname, String nickname, String phone_number, 
 			String address, String email_address, String birth_date) throws SQLException {
 		String addPerson = "INSERT INTO person(lastname, firstname, nickname, phone_number, address, email_address, birth_date) VALUES(?, ?, ?, ?, ?, ?, ?)";
@@ -47,6 +72,13 @@ public class DatabaseManagement {
 		statement.close();
 	}
 	
+	/**
+	 * Allows to delete a person from the database taking her lastname and firstname
+	 * @param connection The Connection object representing the database
+	 * @param lastname Lastname of the person
+	 * @param firstname Firstname of the person
+	 * @throws SQLException
+	 */
 	public static void del(Connection connection, String lastname, String firstname) throws SQLException {
 		String delPerson = "DELETE FROM person WHERE lastname = ? AND firstname = ?";
 		PreparedStatement statement = connection.prepareStatement(delPerson);

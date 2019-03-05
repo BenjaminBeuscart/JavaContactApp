@@ -7,6 +7,11 @@ public class DatabaseSource {
 	
 	private static MysqlDataSource dataSource;
 	
+	/**
+	 * Returns a MysqlDtataSource object containing
+	 * all required data to connect to the database
+	 * @return A MysqlDataSource object
+	 */
 	public static DataSource getDataSource() {
 		if (dataSource == null) {
 			dataSource = new MysqlDataSource();
