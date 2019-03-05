@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 
 public class MainUI extends Application {
 	
+	/* TODO Gérer le passage entre deux scene */
+	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		primaryStage.setTitle("ContactApp");

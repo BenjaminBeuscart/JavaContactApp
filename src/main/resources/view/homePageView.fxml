@@ -4,6 +4,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<!-- TODO  affichage liste des personnes-->
+<!-- TODO  affichage partie ajout de personne au propre-->
+<!-- TODO  affichage zone suppression personnes-->
+<!-- TODO  bouton déconnexion-->
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphicalUI.MainUIController">
    <children>
       <Button layoutX="256.0" layoutY="168.0" mnemonicParsing="false" onAction="#addDb" text="Add" />

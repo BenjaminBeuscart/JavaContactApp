@@ -45,6 +45,7 @@ public class MainUIController {
 	@FXML
 	private TextField birthdateInput;
 	
+	/* TODO onConnectionClick changer de scene et garder en mémoire les Id de la bdd */
 	@FXML
 	private void onConnectionClick() throws IOException, SQLException {
 		setDbName(dbNameInput.getText());

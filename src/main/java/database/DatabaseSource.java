@@ -7,6 +7,8 @@ public class DatabaseSource {
 	
 	private static MysqlDataSource dataSource;
 	
+	/* TODO Passer les identifiants de la database en paramètre*/
+	
 	/**
 	 * Returns a MysqlDtataSource object containing
 	 * all required data to connect to the database

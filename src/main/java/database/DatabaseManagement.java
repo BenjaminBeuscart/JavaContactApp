@@ -9,6 +9,8 @@ import database.DatabaseSource;
 
 public class DatabaseManagement {
 	
+	/* TODO Séquencer le script en plusieurs fichiers */
+	
 	/**
 	 * Opens the connection to
 	 * the database using datas from a MysqlDataSource
