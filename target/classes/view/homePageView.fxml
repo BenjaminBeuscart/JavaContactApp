@@ -11,7 +11,7 @@
 <!-- TODO  affichage zone suppression personnes-->
 <!-- TODO  bouton déconnexion-->
 
-<AnchorPane prefHeight="549.0" prefWidth="962.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphicalUI.MainUIController">
+<AnchorPane prefHeight="549.0" prefWidth="962.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphicalUI.HomePageController">
    <children>
       <Button layoutX="59.0" layoutY="419.0" mnemonicParsing="false" onAction="#addDb" text="Add" />
       <TextField fx:id="lastnameInput" layoutX="35.0" layoutY="56.0" promptText="Lastname" />
@@ -33,5 +33,8 @@
             <TableColumn fx:id="birthdateColumn" prefWidth="65.0" text="Birthdate" />
         </columns>
       </TableView>
+      <Button layoutX="60.0" layoutY="485.0" mnemonicParsing="false" onAction="#delDb" text="Delete" />
+      <TextField fx:id="delLastnameInput" layoutX="131.0" layoutY="492.0" promptText="Lastname" />
+      <TextField fx:id="delFirstnameInput" layoutX="426.0" layoutY="492.0" promptText="Firstname" />
    </children>
 </AnchorPane>
