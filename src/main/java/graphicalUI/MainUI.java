@@ -13,7 +13,7 @@ public class MainUI extends Application {
 	/* TODO Gérer le passage entre deux scene */
 	
 	@Override
-	public void start(Stage primaryStage) throws IOException {
+	public void start(Stage primaryStage) {
 		primaryStage.setTitle("ContactApp");
 		StageService.getInstance().setPrimaryStage(primaryStage);
 		showStartPage();
@@ -23,23 +23,33 @@ public class MainUI extends Application {
 		launch(args);
 	}
 	
-	public static void showStartPage() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainUI.class.getResource("/view/startPageView.fxml"));
-		AnchorPane rootLayout = loader.load();
-		Scene scene = new Scene(rootLayout);
-		Stage st = StageService.getInstance().getPrimaryStage();
-		st.setScene(scene);
-		st.show();
+	public static void showStartPage() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainUI.class.getResource("/view/startPageView.fxml"));
+			AnchorPane rootLayout;
+			rootLayout = loader.load();
+			Scene scene = new Scene(rootLayout);
+			Stage st = StageService.getInstance().getPrimaryStage();
+			st.setScene(scene);
+			st.show();
+		} catch (IOException e) {
+			System.out.println("No startPageView.xml file existing.");
+		}
 	}
 	
-	public static void showHomePage() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainUI.class.getResource("/view/homePageView.fxml"));
-		AnchorPane rootLayout = loader.load();
-		Scene scene = new Scene(rootLayout);
-		Stage st = StageService.getInstance().getPrimaryStage();
-		st.setScene(scene);
-		st.show();
+	public static void showHomePage() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainUI.class.getResource("/view/homePageView.fxml"));
+			AnchorPane rootLayout;
+			rootLayout = loader.load();
+			Scene scene = new Scene(rootLayout);
+			Stage st = StageService.getInstance().getPrimaryStage();
+			st.setScene(scene);
+			st.show();
+		} catch (IOException e) {
+			System.out.println("No homePageView.xml file existing.");
+		}
 	}
 }

@@ -13,9 +13,14 @@ public class DatabaseOpen {
 	 * @return A Connection object
 	 * @throws SQLException
 	 */
-	public static Connection start() throws SQLException {
-		Connection connection = DatabaseSource.getDataSource().getConnection();
-		System.out.println("Connection to database established.");
+	public static Connection start() {
+		Connection connection = null;
+		try {
+			connection = DatabaseSource.getDataSource().getConnection();
+			System.out.println("Connection to database established.");
+		} catch (SQLException e) {
+			System.out.println("Wrong name, user or password.");
+		}
 		return connection;
 	}
 	
@@ -24,8 +29,13 @@ public class DatabaseOpen {
 	 * @param connection The Connection object representing the database
 	 * @throws SQLException
 	 */
-	public static void close(Connection connection) throws SQLException {
-		connection.close();
-		System.out.println("Connexion to database closed.");
+	public static void close(Connection connection) {
+		try {
+			connection.close();
+			System.out.println("Connexion to database closed.");
+			
+		} catch (SQLException e) {
+			System.out.println("No database to close.");
+		}
 	}
 }

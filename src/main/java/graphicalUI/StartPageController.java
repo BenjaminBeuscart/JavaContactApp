@@ -1,22 +1,16 @@
 package graphicalUI;
 
-import java.io.IOException;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import database.DatabaseOpen;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-
-import javafx.stage.Stage;
-
 
 public class StartPageController {
 	
 	private String dbName;
 	private String username;
 	private String password;
-	
 	public void setDbName(String dbName) {
 		this.dbName = dbName;
 	}
@@ -27,26 +21,24 @@ public class StartPageController {
 		this.password = password;
 	}
 	
+	/*----- Connection part -----*/
 	@FXML
 	private TextField dbNameInput;
 	@FXML
 	private TextField usernameInput;
 	@FXML
-	private TextField passwordInput;
-	
-	
-	/* TODO onConnectionClick changer de scene et garder en mémoire les Id de la bdd */
+	private TextField passwordInput;	
+	/* TODO onConnectionClick garder en mémoire les Id de la bdd */
 	@FXML
-	private void onConnectionClick() throws IOException, SQLException {
+	private void onConnectionClick() {
 		setDbName(dbNameInput.getText());
 		setUsername(usernameInput.getText());
 		setPassword(passwordInput.getText());
 		
-		Connection connection = DatabaseOpen.start();
-		
 		System.out.println("Database : " + dbName + ", username : " + username + ", password : " + password);
 		MainUI.showHomePage();
 	}
+	/*----- Connection part -----*/
 	
 	
 	

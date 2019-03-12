@@ -11,17 +11,17 @@
 <!-- TODO  affichage zone suppression personnes-->
 <!-- TODO  bouton déconnexion-->
 
-<AnchorPane prefHeight="549.0" prefWidth="962.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphicalUI.HomePageController">
+<AnchorPane minWidth="1000.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphicalUI.HomePageController">
    <children>
-      <Button layoutX="59.0" layoutY="419.0" mnemonicParsing="false" onAction="#addDb" text="Add" />
-      <TextField fx:id="lastnameInput" layoutX="35.0" layoutY="56.0" promptText="Lastname" />
-      <TextField fx:id="firstnameInput" layoutX="32.0" layoutY="90.0" promptText="Firstname" />
-      <TextField fx:id="nicknameInput" layoutX="32.0" layoutY="125.0" promptText="Nickname" />
-      <TextField fx:id="phoneInput" layoutX="32.0" layoutY="187.0" promptText="Phone number" />
-      <TextField fx:id="addressInput" layoutX="32.0" layoutY="252.0" promptText="Address" />
-      <TextField fx:id="emailInput" layoutX="35.0" layoutY="297.0" promptText="Email" />
-      <TextField fx:id="birthdateInput" layoutX="37.0" layoutY="346.0" promptText="Birth date" />
-      <TableView fx:id="listPerson" layoutX="243.0" layoutY="29.0" prefHeight="405.0" prefWidth="692.0">
+      <Button layoutX="63.0" layoutY="275.0" mnemonicParsing="false" onAction="#addDb" text="Add" />
+      <TextField fx:id="lastnameInput" layoutX="14.0" layoutY="29.0" promptText="Lastname" />
+      <TextField fx:id="firstnameInput" layoutX="14.0" layoutY="64.0" promptText="Firstname" />
+      <TextField fx:id="nicknameInput" layoutX="14.0" layoutY="97.0" promptText="Nickname" />
+      <TextField fx:id="phoneInput" layoutX="14.0" layoutY="132.0" promptText="Phone number" />
+      <TextField fx:id="addressInput" layoutX="14.0" layoutY="166.0" promptText="Address" />
+      <TextField fx:id="emailInput" layoutX="14.0" layoutY="205.0" promptText="Email" />
+      <TextField fx:id="birthdateInput" layoutX="14.0" layoutY="239.0" promptText="Birth date" />
+      <TableView fx:id="listPerson" layoutX="212.0" layoutY="72.0" minWidth="750.0" prefHeight="405.0" prefWidth="692.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="35.20001220703125" text="id" />
           <TableColumn fx:id="lastnameColumn" text="Lastname" />
@@ -33,9 +33,9 @@
             <TableColumn fx:id="birthdateColumn" prefWidth="65.0" text="Birthdate" />
         </columns>
       </TableView>
-      <Button layoutX="60.0" layoutY="485.0" mnemonicParsing="false" onAction="#delDb" text="Delete" />
-      <TextField fx:id="delLastnameInput" layoutX="131.0" layoutY="492.0" promptText="Lastname" />
-      <TextField fx:id="delFirstnameInput" layoutX="426.0" layoutY="492.0" promptText="Firstname" />
-      <Button layoutX="789.0" layoutY="493.0" mnemonicParsing="false" onAction="#onDiconnectClick" text="Disconnect" />
+      <Button layoutX="63.0" layoutY="471.0" mnemonicParsing="false" onAction="#delDb" text="Delete" />
+      <TextField fx:id="delLastnameInput" layoutX="14.0" layoutY="397.0" promptText="Lastname" />
+      <TextField fx:id="delFirstnameInput" layoutX="14.0" layoutY="435.0" promptText="Firstname" />
+      <Button layoutX="838.0" layoutY="554.0" mnemonicParsing="false" onAction="#onDisconnectClick" text="Disconnect" />
    </children>
 </AnchorPane>
