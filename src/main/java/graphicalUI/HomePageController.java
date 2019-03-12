@@ -1,5 +1,6 @@
 package graphicalUI;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -75,5 +76,10 @@ public class HomePageController {
 		};
 		ObservableList<Person> olistPerson = FXCollections.observableArrayList(alistPerson);
 		listPerson.setItems(olistPerson);
+	}
+	
+	@FXML
+	private void onDiconnectClick() throws IOException {
+		MainUI.showStartPage();
 	}
 }

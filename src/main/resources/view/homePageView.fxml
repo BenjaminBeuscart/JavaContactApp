@@ -36,5 +36,6 @@
       <Button layoutX="60.0" layoutY="485.0" mnemonicParsing="false" onAction="#delDb" text="Delete" />
       <TextField fx:id="delLastnameInput" layoutX="131.0" layoutY="492.0" promptText="Lastname" />
       <TextField fx:id="delFirstnameInput" layoutX="426.0" layoutY="492.0" promptText="Firstname" />
+      <Button layoutX="789.0" layoutY="493.0" mnemonicParsing="false" onAction="#onDiconnectClick" text="Disconnect" />
    </children>
 </AnchorPane>
