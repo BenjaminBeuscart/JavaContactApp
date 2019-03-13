@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.sql.Connection;
 
 import database.DatabaseOpen;
