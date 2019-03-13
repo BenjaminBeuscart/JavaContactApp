@@ -54,7 +54,7 @@ public class DatabaseRequest {
 			System.out.println(nbLines + " line(s) have been modified.");
 			statement.close();
 		} catch (SQLException e) {
-			System.out.println("No connection instance existing or form not completely filled.");
+			System.out.println("Form not completely filled.");
 		}
 	}
 	

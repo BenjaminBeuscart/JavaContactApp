@@ -36,6 +36,7 @@ public class HomePageController {
 	private void addDb() {
 		Connection connection = DatabaseOpen.start();
 		DatabaseRequest.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
+		refresh();
 	}
 	/*----- Adding part -----*/
 	
@@ -48,6 +49,7 @@ public class HomePageController {
 	private void delDb() {
 		Connection connection = DatabaseOpen.start();
 		DatabaseRequest.del(connection, delLastnameInput.getText(), delFirstnameInput.getText());
+		refresh();
 	}
 	/*----- Deleting part -----*/
 	
@@ -86,6 +88,12 @@ public class HomePageController {
 		};
 	}
 	/*----- Listing part -----*/
+	
+	@FXML
+	private void refresh() {
+		MainUI.showHomePage();
+		System.out.println("Page refreshed !");
+	}
 	
 	/*----- Disconnection part -----*/
 	@FXML

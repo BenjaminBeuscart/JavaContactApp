@@ -1,8 +1,5 @@
 package graphicalUI;
 
-import java.sql.Connection;
-
-import database.DatabaseOpen;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
