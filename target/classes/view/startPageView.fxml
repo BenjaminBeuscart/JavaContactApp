@@ -9,7 +9,7 @@
 
 
 <!-- TODO Page propre -->
-<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphicalUI.StartPageController">
+<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartPageController">
    <children>
       <Text layoutX="89.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome on ContactApp" textAlignment="CENTER">
          <font>

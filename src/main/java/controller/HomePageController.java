@@ -1,4 +1,4 @@
-package graphicalUI;
+package controller;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,13 +7,14 @@ import java.util.ArrayList;
 
 import database.DatabaseOpen;
 import database.DatabaseRequest;
-import database.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import main.ContactApp;
+import model.Person;
 
 public class HomePageController {
 
@@ -89,16 +90,18 @@ public class HomePageController {
 	}
 	/*----- Listing part -----*/
 	
+	/*----- Refresh part -----*/
 	@FXML
 	private void refresh() {
-		MainUI.showHomePage();
+		ContactApp.showHomePage();
 		System.out.println("Page refreshed !");
 	}
+	/*----- Refresh part -----*/
 	
 	/*----- Disconnection part -----*/
 	@FXML
 	private void onDisconnectClick() {
-		MainUI.showStartPage();
+		ContactApp.showStartPage();
 	}
 	/*----- Disconnection part -----*/
 }

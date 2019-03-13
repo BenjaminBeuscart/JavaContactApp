@@ -1,4 +1,4 @@
-package graphicalUI;
+package main;
 
 import java.io.IOException;
 
@@ -7,8 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import service.StageService;
 
-public class MainUI extends Application {
+public class ContactApp extends Application {
 	
 	/* TODO Gérer le passage entre deux scene */
 	
@@ -26,7 +27,7 @@ public class MainUI extends Application {
 	public static void showStartPage() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainUI.class.getResource("/view/startPageView.fxml"));
+			loader.setLocation(ContactApp.class.getResource("/view/startPageView.fxml"));
 			AnchorPane rootLayout;
 			rootLayout = loader.load();
 			Scene scene = new Scene(rootLayout);
@@ -41,7 +42,7 @@ public class MainUI extends Application {
 	public static void showHomePage() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainUI.class.getResource("/view/homePageView.fxml"));
+			loader.setLocation(ContactApp.class.getResource("/view/homePageView.fxml"));
 			AnchorPane rootLayout;
 			rootLayout = loader.load();
 			Scene scene = new Scene(rootLayout);

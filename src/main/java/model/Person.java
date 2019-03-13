@@ -1,4 +1,4 @@
-package database;
+package model;
 
 public class Person {
 	private int id;

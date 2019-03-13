@@ -1,7 +1,8 @@
-package graphicalUI;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import main.ContactApp;
 
 public class StartPageController {
 	
@@ -33,7 +34,7 @@ public class StartPageController {
 		setPassword(passwordInput.getText());
 		
 		System.out.println("Database : " + dbName + ", username : " + username + ", password : " + password);
-		MainUI.showHomePage();
+		ContactApp.showHomePage();
 	}
 	/*----- Connection part -----*/
 	

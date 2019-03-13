@@ -1,4 +1,4 @@
-package graphicalUI;
+package service;
 
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
