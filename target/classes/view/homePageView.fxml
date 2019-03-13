@@ -38,5 +38,6 @@
       <TextField fx:id="delFirstnameInput" layoutX="14.0" layoutY="435.0" promptText="Firstname" />
       <Button layoutX="838.0" layoutY="554.0" mnemonicParsing="false" onAction="#onDisconnectClick" text="Disconnect" />
       <Button layoutX="767.0" layoutY="554.0" mnemonicParsing="false" onAction="#refreshView" text="Refresh" />
+      <Button layoutX="576.0" layoutY="558.0" mnemonicParsing="false" onAction="#vcardExport" text="Export vcards" />
    </children>
 </AnchorPane>

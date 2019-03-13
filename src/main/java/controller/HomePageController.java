@@ -1,9 +1,12 @@
 package controller;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.Connection;
 
 import database.DatabaseOpen;
 import database.DatabaseRequest;
+import export.Export;
 import factory.AddressValueFactory;
 import factory.BirthdateValueFactory;
 import factory.EmailValueFactory;
@@ -96,6 +99,13 @@ public class HomePageController {
 		this.populateList();
 	}
 	/*----- Listing part -----*/
+	
+	/*----- Export part -----*/
+	@FXML
+	private void vcardExport() throws IOException {
+		Export.vcardsCreate(PersonService.getPersons());
+	}
+	/*----- Export part -----*/
 	
 	/*----- Refresh part -----*/
 	@FXML
