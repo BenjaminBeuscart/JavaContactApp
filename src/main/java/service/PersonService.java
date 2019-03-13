@@ -1,5 +1,11 @@
 package service;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import database.DatabaseOpen;
+import database.DatabaseRequest;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Person;
@@ -8,8 +14,17 @@ public class PersonService {
 	private ObservableList<Person> persons;
 	
 	public PersonService() {
-		persons = FXCollections.observableArrayList();
-		// Constructeur ou on remplis la liste persons avec les objets Person récup du resultset de la requete dans la bdd
+		try {
+			persons = FXCollections.observableArrayList();
+			Connection connection = DatabaseOpen.start();
+			ResultSet setPerson = DatabaseRequest.listPerson(connection);
+			while (setPerson.next()) {
+				persons.add(new Person(setPerson.getString(1), setPerson.getString(2), setPerson.getString(3), setPerson.getString(4), setPerson.getString(5), setPerson.getString(6), setPerson.getString(7), setPerson.getString(8)));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static ObservableList<Person> getPersons() {

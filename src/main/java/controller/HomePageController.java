@@ -1,20 +1,24 @@
 package controller;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 import database.DatabaseOpen;
 import database.DatabaseRequest;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import factory.AddressValueFactory;
+import factory.BirthdateValueFactory;
+import factory.EmailValueFactory;
+import factory.FirstnameValueFactory;
+import factory.IdValueFactory;
+import factory.LastnameValueFactory;
+import factory.NicknameValueFactory;
+import factory.PhonenumberValueFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import main.ContactApp;
 import model.Person;
+import service.PersonService;
 
 public class HomePageController {
 
@@ -37,7 +41,7 @@ public class HomePageController {
 	private void addDb() {
 		Connection connection = DatabaseOpen.start();
 		DatabaseRequest.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
-		refresh();
+		this.populateList();
 	}
 	/*----- Adding part -----*/
 	
@@ -50,7 +54,7 @@ public class HomePageController {
 	private void delDb() {
 		Connection connection = DatabaseOpen.start();
 		DatabaseRequest.del(connection, delLastnameInput.getText(), delFirstnameInput.getText());
-		refresh();
+		this.populateList();
 	}
 	/*----- Deleting part -----*/
 	
@@ -58,7 +62,7 @@ public class HomePageController {
 	@FXML
 	private TableView<Person> listPerson;
 	@FXML
-	private TableColumn<Person, Integer> idColumn;
+	private TableColumn<Person, String> idColumn;
 	@FXML
 	private TableColumn<Person, String> lastnameColumn;
 	@FXML
@@ -73,28 +77,36 @@ public class HomePageController {
 	private TableColumn<Person, String> emailColumn;
 	@FXML
 	private TableColumn<Person, String> birthdateColumn;
+	
+	private void populateList() {
+		this.listPerson.setItems(PersonService.getPersons());
+		this.resetList();
+	}
+	
 	@FXML
 	private void initialize() {
-		try {
-			Connection connection = DatabaseOpen.start();
-			ResultSet setPerson = DatabaseRequest.listPerson(connection);
-			ArrayList<Person> alistPerson = new ArrayList<Person>();
-			while (setPerson.next()) {
-				alistPerson.add(new Person(setPerson.getInt(1), setPerson.getString(2), setPerson.getString(3), setPerson.getString(4), setPerson.getString(5), setPerson.getString(6), setPerson.getString(7), setPerson.getString(8)));
-			}
-			ObservableList<Person> olistPerson = FXCollections.observableArrayList(alistPerson);
-			listPerson.setItems(olistPerson);
-		} catch (SQLException e) {
-			System.out.println("Maybe null pointer error ?");
-		};
+		this.addressColumn.setCellValueFactory(new AddressValueFactory());
+		this.emailColumn.setCellValueFactory(new EmailValueFactory());
+		this.birthdateColumn.setCellValueFactory(new BirthdateValueFactory());
+		this.phoneColumn.setCellValueFactory(new PhonenumberValueFactory());
+		this.nicknameColumn.setCellValueFactory(new NicknameValueFactory());
+		this.lastnameColumn.setCellValueFactory(new LastnameValueFactory());
+		this.firstnameColumn.setCellValueFactory(new FirstnameValueFactory());
+		this.idColumn.setCellValueFactory(new IdValueFactory());
+		this.populateList();
 	}
 	/*----- Listing part -----*/
 	
 	/*----- Refresh part -----*/
 	@FXML
-	private void refresh() {
+	private void refreshView() {
 		ContactApp.showHomePage();
 		System.out.println("Page refreshed !");
+	}
+	
+	private void resetList() {
+		this.listPerson.refresh();
+		this.listPerson.getSelectionModel().clearSelection();
 	}
 	/*----- Refresh part -----*/
 	

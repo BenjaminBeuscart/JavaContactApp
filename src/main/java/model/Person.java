@@ -1,7 +1,7 @@
 package model;
 
 public class Person {
-	private int id;
+	private String id;
 	private String lastname;
 	private String firstname;
 	private String nickname;
@@ -10,10 +10,10 @@ public class Person {
 	private String email;
 	private String birthdate;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getLastname() {
@@ -58,7 +58,7 @@ public class Person {
 	public void setBirthdate(String birthdate) {
 		this.birthdate = birthdate;
 	}
-	public Person(int id, String lastname, String firstname, String nickname, String phonenumber, String address,
+	public Person(String id, String lastname, String firstname, String nickname, String phonenumber, String address,
 			String email, String birthdate) {
 		super();
 		this.id = id;
