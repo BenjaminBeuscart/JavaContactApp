@@ -13,11 +13,17 @@ import model.Person;
 
 public class Export {
 	
+	/**
+	 * Method to create a directory writting its name
+	 * with timeStamp
+	 * @return The created directory path
+	 */
 	public static Path createDirectory() {
+		//Wil create directory at the same place as your JavaContactApp folder is
 		Path path = null;
 		try {
 			String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-			path = Paths.get("C:/Users/beusc/Desktop/test/export_" + timeStamp);
+			path = Paths.get("../export_" + timeStamp);
 			Files.createDirectory(path);
 		} catch (IOException e) {
 			System.out.println("Wrong path, please change it in creatDirectory() methode from the Export class.");
@@ -25,6 +31,13 @@ public class Export {
 		return path;
 	}
 	
+	/**
+	 * Method to create vcards files for each item in the database
+	 * Will create files in the directory indicated by the path given by
+	 * createDirectory()
+	 * @param persons	List of person given by the database
+	 * @throws IOException
+	 */
 	public static void vcardsCreate(ObservableList<Person> persons) throws IOException {
 		Path path = createDirectory();
 		for (int i = 0; i < persons.size(); i++) {
