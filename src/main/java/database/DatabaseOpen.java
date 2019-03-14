@@ -2,7 +2,7 @@ package database;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import database.DatabaseSource;
+import service.DatabaseService;
 
 public class DatabaseOpen {
 	
@@ -13,15 +13,11 @@ public class DatabaseOpen {
 	 * @return A Connection object
 	 * @throws SQLException
 	 */
-	public static Connection start() {
-		Connection connection = null;
-		try {
-			connection = DatabaseSource.getDataSource().getConnection();
-			System.out.println("Connection to database established.");
-		} catch (SQLException e) {
-			System.out.println("Wrong name, user or password.");
-		}
-		return connection;
+	public static void start(String dbName, String user, String password) {
+		DatabaseService.getInstance().getDataSource().setDatabaseName(dbName);
+		DatabaseService.getInstance().getDataSource().setUser(user);
+		DatabaseService.getInstance().getDataSource().setPassword(password);
+		System.out.println("Connection to database established.");
 	}
 	
 	/**

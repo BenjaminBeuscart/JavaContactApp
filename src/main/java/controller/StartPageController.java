@@ -1,23 +1,11 @@
 package controller;
 
+import database.DatabaseOpen;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import main.ContactApp;
 
 public class StartPageController {
-	
-	private String dbName;
-	private String username;
-	private String password;
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	
 	/*----- Connection part -----*/
 	@FXML
@@ -25,16 +13,11 @@ public class StartPageController {
 	@FXML
 	private TextField usernameInput;
 	@FXML
-	private TextField passwordInput;	
-	/* TODO onConnectionClick garder en mémoire les Id de la bdd */
+	private TextField passwordInput;
 	@FXML
 	private void onConnectionClick() {
-		setDbName(dbNameInput.getText());
-		setUsername(usernameInput.getText());
-		setPassword(passwordInput.getText());
-		
-		System.out.println("Database : " + dbName + ", username : " + username + ", password : " + password);
-		ContactApp.showHomePage();
+			DatabaseOpen.start(dbNameInput.getText(), usernameInput.getText(), passwordInput.getText());
+			ContactApp.showHomePage();
 	}
 	/*----- Connection part -----*/
 	

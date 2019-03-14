@@ -11,8 +11,6 @@ import service.StageService;
 
 public class ContactApp extends Application {
 	
-	/* TODO Gérer le passage entre deux scene */
-	
 	@Override
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("ContactApp");

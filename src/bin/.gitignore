@@ -1,3 +1,7 @@
-/contactApp/
+/controller/
 /database/
-/graphicalUI/
+/export/
+/factory/
+/main/
+/model/
+/service/

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import database.DatabaseOpen;
 import database.DatabaseRequest;
@@ -20,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import main.ContactApp;
 import model.Person;
+import service.DatabaseService;
 import service.PersonService;
 
 public class HomePageController {
@@ -40,8 +42,8 @@ public class HomePageController {
 	@FXML
 	private TextField birthdateInput;
 	@FXML
-	private void addDb() {
-		Connection connection = DatabaseOpen.start();
+	private void addDb() throws SQLException {
+		Connection connection = DatabaseService.getInstance().getDataSource().getConnection();
 		DatabaseRequest.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
 		this.populateList();
 	}
@@ -53,8 +55,8 @@ public class HomePageController {
 	@FXML
 	private TextField delFirstnameInput;
 	@FXML
-	private void delDb() {
-		Connection connection = DatabaseOpen.start();
+	private void delDb() throws SQLException {
+		Connection connection = DatabaseService.getInstance().getDataSource().getConnection();
 		DatabaseRequest.del(connection, delLastnameInput.getText(), delFirstnameInput.getText());
 		this.populateList();
 	}
@@ -121,7 +123,8 @@ public class HomePageController {
 	
 	/*----- Disconnection part -----*/
 	@FXML
-	private void onDisconnectClick() {
+	private void onDisconnectClick() throws SQLException {
+		DatabaseOpen.close(DatabaseService.getInstance().getDataSource().getConnection());
 		ContactApp.showStartPage();
 	}
 	/*----- Disconnection part -----*/

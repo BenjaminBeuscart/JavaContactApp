@@ -58,8 +58,6 @@ public class DatabaseRequest {
 		}
 	}
 	
-	/* TODO Méthode pour modifier une ligne de la table person */
-	
 	/**
 	 * Allows to delete a person from the database taking her lastname and firstname
 	 * @param connection The Connection object representing the database

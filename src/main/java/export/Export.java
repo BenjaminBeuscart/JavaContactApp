@@ -25,6 +25,7 @@ public class Export {
 			String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 			path = Paths.get("../export_" + timeStamp);
 			Files.createDirectory(path);
+			System.out.println("Vcards exported at JavaContactApp root.");
 		} catch (IOException e) {
 			System.out.println("Wrong path, please change it in creatDirectory() methode from the Export class.");
 		}
