@@ -12,7 +12,6 @@ public class DatabaseRequest {
 	 * database
 	 * @param connection The Connection object representing the database
 	 * @return A ResultSet object containing the people
-	 * @throws SQLException
 	 */
 	public static ResultSet listPerson(Connection connection) {
 		ResultSet resultSet = null;
@@ -36,7 +35,6 @@ public class DatabaseRequest {
 	 * @param address Address of the person
 	 * @param email_address Email address of the person
 	 * @param birth_date Birthdate of the person respecting this format YYYY-MM-DD
-	 * @throws SQLException
 	 */
 	public static void add(Connection connection, String lastname, String firstname, String nickname, String phone_number, 
 			String address, String email_address, String birth_date) {
@@ -63,7 +61,6 @@ public class DatabaseRequest {
 	 * @param connection The Connection object representing the database
 	 * @param lastname Lastname of the person
 	 * @param firstname Firstname of the person
-	 * @throws SQLException
 	 */
 	public static void del(Connection connection, String lastname, String firstname) {
 		try {

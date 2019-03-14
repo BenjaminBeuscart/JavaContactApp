@@ -7,11 +7,10 @@ import service.DatabaseService;
 public class DatabaseOpen {
 	
 	/**
-	 * Opens the connection to
-	 * the database using datas from a MysqlDataSource
-	 * object
-	 * @return A Connection object
-	 * @throws SQLException
+	 * Sets MySQLDatasource object's parameters
+	 * @param dbName database name
+	 * @param user	username
+	 * @param password	password
 	 */
 	public static void start(String dbName, String user, String password) {
 		DatabaseService.getInstance().getDataSource().setDatabaseName(dbName);
@@ -23,7 +22,6 @@ public class DatabaseOpen {
 	/**
 	 * Closes the connection to a database
 	 * @param connection The Connection object representing the database
-	 * @throws SQLException
 	 */
 	public static void close(Connection connection) {
 		try {
