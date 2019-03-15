@@ -5,39 +5,68 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<!-- TODO  affichage liste des personnes-->
-<!-- TODO  affichage partie ajout de personne au propre-->
-<!-- TODO  affichage zone suppression personnes-->
-<!-- TODO  bouton déconnexion-->
-
-<AnchorPane minWidth="1000.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
+<AnchorPane minWidth="1066.0" prefHeight="544.0" prefWidth="1049.0" style="-fx-background-color: ghostwhite;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
    <children>
-      <Button layoutX="63.0" layoutY="275.0" mnemonicParsing="false" onAction="#addDb" text="Add" />
-      <TextField fx:id="lastnameInput" layoutX="14.0" layoutY="29.0" promptText="Lastname" />
-      <TextField fx:id="firstnameInput" layoutX="14.0" layoutY="64.0" promptText="Firstname" />
-      <TextField fx:id="nicknameInput" layoutX="14.0" layoutY="97.0" promptText="Nickname" />
-      <TextField fx:id="phoneInput" layoutX="14.0" layoutY="132.0" promptText="Phone number" />
-      <TextField fx:id="addressInput" layoutX="14.0" layoutY="166.0" promptText="Address" />
-      <TextField fx:id="emailInput" layoutX="14.0" layoutY="205.0" promptText="Email" />
-      <TextField fx:id="birthdateInput" layoutX="14.0" layoutY="239.0" promptText="Birth date YYYY-MM-DD" />
-      <TableView fx:id="listPerson" layoutX="212.0" layoutY="72.0" minWidth="750.0" prefHeight="405.0" prefWidth="692.0">
+      <TableView fx:id="listPerson" layoutX="245.0" layoutY="59.0" minWidth="694.0" prefHeight="406.0" prefWidth="810.0" style="-fx-border-color: black;">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="35.20001220703125" text="id" />
           <TableColumn fx:id="lastnameColumn" text="Lastname" />
             <TableColumn fx:id="firstnameColumn" text="Firstname" />
             <TableColumn fx:id="nicknameColumn" text="Nickname" />
-            <TableColumn fx:id="phoneColumn" text="Phone number" />
-            <TableColumn fx:id="addressColumn" prefWidth="150.0" text="Address" />
-            <TableColumn fx:id="emailColumn" prefWidth="120.0" text="Email" />
-            <TableColumn fx:id="birthdateColumn" prefWidth="65.0" text="Birthdate" />
+            <TableColumn fx:id="phoneColumn" prefWidth="108.0" text="Phone number" />
+            <TableColumn fx:id="addressColumn" prefWidth="182.39996337890625" text="Address" />
+            <TableColumn fx:id="emailColumn" prefWidth="160.7999267578125" text="Email" />
+            <TableColumn fx:id="birthdateColumn" prefWidth="81.60015869140625" text="Birthdate" />
         </columns>
       </TableView>
-      <Button layoutX="63.0" layoutY="471.0" mnemonicParsing="false" onAction="#delDb" text="Delete" />
-      <TextField fx:id="delLastnameInput" layoutX="14.0" layoutY="397.0" promptText="Lastname" />
-      <TextField fx:id="delFirstnameInput" layoutX="14.0" layoutY="435.0" promptText="Firstname" />
-      <Button layoutX="838.0" layoutY="554.0" mnemonicParsing="false" onAction="#onDisconnectClick" text="Disconnect" />
-      <Button layoutX="767.0" layoutY="554.0" mnemonicParsing="false" onAction="#refreshView" text="Refresh" />
-      <Button layoutX="576.0" layoutY="558.0" mnemonicParsing="false" onAction="#vcardExport" text="Export vcards" />
+      <Button layoutX="773.0" layoutY="492.0" mnemonicParsing="false" onAction="#onDisconnectClick" prefHeight="36.0" prefWidth="149.0" style="-fx-background-color: #d34836; -fx-font: bold 15px Arial; -fx-border-radius: 8px; -fx-padding: 6px 6px 6px 6px;" text="Disconnect" textFill="WHITE">
+         <font>
+            <Font size="55.0" />
+         </font></Button>
+      <Button layoutX="587.0" layoutY="492.0" mnemonicParsing="false" onAction="#refreshView" prefHeight="36.0" prefWidth="149.0" style="-fx-background-color: #d34836; -fx-font: bold 15px Arial; -fx-border-radius: 8px; -fx-padding: 6px 6px 6px 6px;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font size="55.0" />
+         </font></Button>
+      <Button layoutX="403.0" layoutY="492.0" mnemonicParsing="false" onAction="#vcardExport" prefHeight="36.0" prefWidth="149.0" style="-fx-background-color: #d34836; -fx-font: bold 15px Arial; -fx-border-radius: 8px; -fx-padding: 6px 6px 6px 6px;" text="Export vcards" textFill="WHITE">
+         <font>
+            <Font size="55.0" />
+         </font></Button>
+      <Pane layoutX="19.0" layoutY="59.0" prefHeight="318.0" prefWidth="211.0" style="-fx-background-color: lightskyblue; -fx-border-color: black; -fx-border-style: round;">
+         <children>
+            <TextField alignment="CENTER" cacheShape="false" editable="false" focusTraversable="false" layoutX="16.0" layoutY="7.0" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: none;" text="Add a new person">
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="lastnameInput" layoutX="12.0" layoutY="37.0" promptText="Lastname" />
+            <TextField fx:id="firstnameInput" layoutX="13.0" layoutY="70.0" promptText="Firstname" />
+            <TextField fx:id="nicknameInput" layoutX="13.0" layoutY="105.0" promptText="Nickname" />
+            <TextField fx:id="phoneInput" layoutX="14.0" layoutY="139.0" promptText="Phone number" />
+            <TextField fx:id="addressInput" layoutX="14.0" layoutY="172.0" promptText="Address" />
+            <TextField fx:id="emailInput" layoutX="14.0" layoutY="208.0" promptText="Email" />
+            <TextField fx:id="birthdateInput" layoutX="14.0" layoutY="243.0" promptText="Birth date YYYY-MM-DD" />
+            <Button layoutX="62.0" layoutY="275.0" mnemonicParsing="false" onAction="#addDb" text="Add" />
+         </children>
+      </Pane>
+      <Pane layoutX="19.0" layoutY="392.0" prefHeight="146.0" prefWidth="211.0" style="-fx-background-color: lightskyblue; -fx-border-color: black;">
+         <children>
+            <TextField alignment="CENTER" cacheShape="false" editable="false" focusTraversable="false" layoutX="14.0" prefHeight="27.0" prefWidth="149.0" style="-fx-background-color: none;" text="Delete a person">
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="delLastnameInput" layoutX="12.0" layoutY="27.0" promptText="Lastname" />
+            <TextField fx:id="delFirstnameInput" layoutX="12.0" layoutY="60.0" promptText="Firstname" />
+            <Button layoutX="61.0" layoutY="95.0" mnemonicParsing="false" onAction="#delDb" text="Delete" />
+         </children>
+      </Pane>
+      <TextField alignment="CENTER" cacheShape="false" editable="false" focusTraversable="false" layoutX="395.0" layoutY="8.0" prefHeight="44.0" prefWidth="276.0" style="-fx-background-color: none;" text="Contact App ">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
