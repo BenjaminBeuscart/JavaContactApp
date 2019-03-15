@@ -16,8 +16,8 @@ public class StartPageController {
 	private TextField passwordInput;
 	@FXML
 	private void onConnectionClick() {
-			DatabaseOpen.start(dbNameInput.getText(), usernameInput.getText(), passwordInput.getText());
-			ContactApp.showHomePage();
+		DatabaseOpen.start(dbNameInput.getText(), usernameInput.getText(), passwordInput.getText());
+		ContactApp.showHomePage();
 	}
 	/*----- Connection part -----*/
 	

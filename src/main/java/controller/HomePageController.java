@@ -45,7 +45,8 @@ public class HomePageController {
 	private void addDb() throws SQLException {
 		Connection connection = DatabaseService.getInstance().getDataSource().getConnection();
 		DatabaseRequest.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
-		this.populateList();
+		PersonService.addPerson(new Person("", lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText()));
+		this.resetList();
 	}
 	/*----- Adding part -----*/
 	
@@ -58,7 +59,6 @@ public class HomePageController {
 	private void delDb() throws SQLException {
 		Connection connection = DatabaseService.getInstance().getDataSource().getConnection();
 		DatabaseRequest.del(connection, delLastnameInput.getText(), delFirstnameInput.getText());
-		this.populateList();
 	}
 	/*----- Deleting part -----*/
 	
