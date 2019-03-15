@@ -45,7 +45,6 @@ public class HomePageController {
 	private void addDb() throws SQLException {
 		Connection connection = DatabaseService.getInstance().getDataSource().getConnection();
 		DatabaseRequest.add(connection, lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText());
-		PersonService.addPerson(new Person("", lastnameInput.getText(), firstnameInput.getText(), nicknameInput.getText(), phoneInput.getText(), addressInput.getText(), emailInput.getText(), birthdateInput.getText()));
 		this.resetList();
 	}
 	/*----- Adding part -----*/
@@ -59,6 +58,7 @@ public class HomePageController {
 	private void delDb() throws SQLException {
 		Connection connection = DatabaseService.getInstance().getDataSource().getConnection();
 		DatabaseRequest.del(connection, delLastnameInput.getText(), delFirstnameInput.getText());
+		this.resetList();
 	}
 	/*----- Deleting part -----*/
 	
@@ -115,6 +115,10 @@ public class HomePageController {
 		System.out.println("Page refreshed !");
 	}
 	
+	/**
+	 * Resets the list of person
+	 * i.e. actualize the layout of the list
+	 */
 	private void resetList() {
 		this.listPerson.refresh();
 		this.listPerson.getSelectionModel().clearSelection();
